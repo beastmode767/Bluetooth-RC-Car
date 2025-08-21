@@ -8,8 +8,6 @@ const int rightIN2 = 7;
 
 void setup() {
   Serial.begin(9600); // MAKE SURE YOUR ARDUINO IS SET TO 9600 BAUD
-
-  
   pinMode(leftIN1, OUTPUT);
   pinMode(leftIN2, OUTPUT);
   pinMode(rightIN1, OUTPUT);
@@ -36,16 +34,16 @@ void loop() {
         break;
 
       case 'L': // Turn Left
-        // Left motor backward
+        // Left Side of The Car Move Backward
         digitalWrite(leftIN1, LOW);
         digitalWrite(leftIN2, HIGH);
-        // Right motor forward
+        // Right Side of The Car Moves Forward
         digitalWrite(rightIN1, HIGH);
         digitalWrite(rightIN2, LOW);
         break;
 
       case 'R': // Turn Right
-        // Left Sides of The Car Move Forward
+        // Left Side of The Car Move Forward
         digitalWrite(leftIN1, HIGH);
         digitalWrite(leftIN2, LOW);
         // Right Side of The Car Moves Backward
