@@ -1,0 +1,64 @@
+char data;
+
+// Make sure you connect your motor driver to Arduino pins accordingly to the code below or change the code
+const int leftIN1 = 4;
+const int leftIN2 = 5;
+const int rightIN1 = 6;
+const int rightIN2 = 7;
+
+void setup() {
+  Serial.begin(9600); // MAKE SURE YOUR ARDUINO IS SET TO 9600 BAUD
+
+  
+  pinMode(leftIN1, OUTPUT);
+  pinMode(leftIN2, OUTPUT);
+  pinMode(rightIN1, OUTPUT);
+  pinMode(rightIN2, OUTPUT);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    data = Serial.read(); 
+
+    switch (data) {
+      case 'F': // Move Forward
+        digitalWrite(leftIN1, HIGH);
+        digitalWrite(leftIN2, LOW);
+        digitalWrite(rightIN1, HIGH);
+        digitalWrite(rightIN2, LOW);
+        break;
+
+      case 'B': // Move Backward
+        digitalWrite(leftIN1, LOW);
+        digitalWrite(leftIN2, HIGH);
+        digitalWrite(rightIN1, LOW);
+        digitalWrite(rightIN2, HIGH);
+        break;
+
+      case 'L': // Turn Left
+        // Left motor backward
+        digitalWrite(leftIN1, LOW);
+        digitalWrite(leftIN2, HIGH);
+        // Right motor forward
+        digitalWrite(rightIN1, HIGH);
+        digitalWrite(rightIN2, LOW);
+        break;
+
+      case 'R': // Turn Right
+        // Left Sides of The Car Move Forward
+        digitalWrite(leftIN1, HIGH);
+        digitalWrite(leftIN2, LOW);
+        // Right Side of The Car Moves Backward
+        digitalWrite(rightIN1, LOW);
+        digitalWrite(rightIN2, HIGH);
+        break;
+
+      case 'S': // Stop
+        digitalWrite(leftIN1, LOW);
+        digitalWrite(leftIN2, LOW);
+        digitalWrite(rightIN1, LOW);
+        digitalWrite(rightIN2, LOW);
+        break;
+    }
+  }
+}
