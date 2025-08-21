@@ -1,0 +1,16 @@
+# Bluetooth-RC-Car
+Remote Controlled Car powered by an Arduino via Bluetooth from an Android App.
+This projects utilizes bluetooth communication, DC motor control, and C++ coding. 
+
+Features of this project:
+-Bluetooth connection using an "HC-05".
+-"Arduino UNO" microcontroller for command processing.
+-Four "DC motors" controlled using one "L298N Motor Driver".
+-Android APP connected to "HC-05" to control the RC Car.
+-Arduino APP for coding using C++.
+-Utilizing lithium batteries to power the RC Car without connecting it to a laptop.
+-Wood Cutting and drilling to make build the frame of Car.
+
+Future Improvements:
+-I will add sensor on front of the car. Make it automated to move and turn when an obstacle is in front of it.
+-Attach the components more proffesionally to the frame, rathen than taping.
